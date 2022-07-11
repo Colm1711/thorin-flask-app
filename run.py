@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 # creating an instance of this and storing it in app
 # naming convention in flask is to call it app
@@ -9,7 +9,8 @@ app = Flask(__name__)
 # using the app.route decorator
 @app.route("/")
 def index():
-    return "Hello World!"
+    # flask expects this index.html to be in the templates folder with an s
+    return render_template("index.html")
 
 # referencing the os import using the get method
 # os module gets the IP module if it exists and sets 0.0.0.0 if it dosen't exist
