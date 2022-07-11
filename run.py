@@ -26,6 +26,11 @@ def about():
 def contact():
     return render_template("contact.html")
 
+
+@app.route("/careers")
+def careers():
+    return render_template("careers.html")
+
 # referencing the os import using the get method
 # os module gets the IP module if it exists and sets 0.0.0.0 if it dosen't exist
 # doing the same with port, using the 5000 as this is the common one used by flask
