@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template
 
 # creating an instance of this and storing it in app
@@ -18,18 +19,21 @@ def index():
 # creating another route/view function for about page
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    data = []
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("about.html", page_title="About", company=data)
 
 
 # creating another route/view function for about page
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", page_title="Contact")
 
 
 @app.route("/careers")
 def careers():
-    return render_template("careers.html")
+    return render_template("careers.html", page_title="Careers")
 
 # referencing the os import using the get method
 # os module gets the IP module if it exists and sets 0.0.0.0 if it dosen't exist
